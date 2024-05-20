@@ -19,6 +19,7 @@ const verifyToken = (req, res, next) => {
     let t = req.headers["authorization"];
     if (!t) {
         res.status(StatusCodes.FORBIDDEN).send({message: 'Unauthenticated'})
+        return;
     }
     const x = t.split('Bearer ');
     const token = x[1];
